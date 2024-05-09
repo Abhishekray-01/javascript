@@ -1,0 +1,512 @@
+<!--
+    JSON
+    ****
+        JSON Stands for Java Script Object Notation
+
+        JSON also called as "JavaScript Objects"
+
+        JSON, used to transfer the data over the "Network"
+
+        JSON is light weight
+
+        Parsing(Reading) of JSON Eazy
+
+        Syntax
+        ******
+        Objects --- {}
+
+        Arrays  --- []
+
+        data    --- key & value pairs
+
+        key & value separated by using ":"
+
+        key & value pairs separated by using ","
+
+-->
+
+
+<!--
+<script>
+    let obj = {
+        sub_one : "ReactJS",
+        sub_two : "NodeJS",
+        sub_three : "MongoDB"
+    };
+    //read the data by using . opearator
+    console.log(
+        obj.sub_one,
+        obj.sub_two,
+        obj.sub_three
+    );
+    //read the data by using [] opearator
+    console.log(
+        obj["sub_one"],
+        obj["sub_two"],
+        obj["sub_three"]
+    );
+    //read the data by using destructuring (ES6)
+    let {sub_one,sub_two,sub_three} = obj;
+    console.log(sub_one,sub_two,sub_three);
+    //read the data by using for...in loop
+    for(let key in obj){
+        console.log(obj[key]);
+    }
+</script>
+-->
+
+
+
+<!--
+<script>
+    let obj = {
+        frontend:{sub_one:"ReactJS"},
+        backend:{sub_one:"NodeJS"},
+        database:{sub_one:"MongoDB"}
+    };
+    console.log(
+        obj.frontend.sub_one,
+        obj.backend.sub_one,
+        obj.database.sub_one
+    );
+    //ReactJS NodeJS MongoDB
+</script>
+-->
+
+<!--
+<script>
+    let obj = {
+        obj1:{obj2:{sub_one:"ReactJS"}}
+    };
+    console.log( obj.obj1.obj2.sub_one );
+    //ReactJS
+</script>
+-->
+<!--
+<script>
+    let obj = {
+        obj1:{obj2:{sub_one:"ReactJS"},
+              obj3:{sub_one:"NodeJS"},
+              obj4:{sub_one:"MongoDB"}}
+    };
+    console.log( obj.obj1.obj2.sub_one );
+    console.log( obj.obj1.obj3.sub_one );
+    console.log( obj.obj1.obj4.sub_one );
+    //ReactJS    NodeJS    MongoDB
+</script>
+-->
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1",
+        key2 : "Hello_2",
+        key3 : "Hello_3"
+    };
+    delete obj.key2;
+    console.log(obj);
+    //{key1: 'Hello_1', key3: 'Hello_3'}
+</script>
+-->
+<!--
+<script>
+    let obj = {
+        sub_one : "ReactJS",
+        sub_two : "NodeJS",
+        sub_three : "MongoDB",
+        sub_four : "Python"
+    };
+    delete obj.sub_four;
+    console.log(obj);
+    //{sub_one: 'ReactJS', sub_two: 'NodeJS', sub_three: 'MongoDB'}
+</script>
+-->
+<!--
+<script>
+    let obj1 = {
+        sub_one : "ReactJS"
+    };
+    let obj2 = {
+        sub_two : "NodeJS"
+    };
+    let obj3 = {
+        sub_three : "MongoDB"
+    };
+    let obj4 = {...obj1,...obj2,...obj3};
+    console.log(obj4);
+    //{sub_one: 'ReactJS', sub_two: 'NodeJS', sub_three: 'MongoDB'}
+</script>
+-->
+<!--
+<script>
+    let obj1 = {key3:"Hello_3"};
+    let obj2 = {key2:"Hello_2"};
+    let obj3 = {key1:"Hello_1"};
+    let obj4 = {...obj3,...obj2,...obj1};
+    console.log(obj4);
+    //{key1:"Hello_1",key2:"Hello_2",key3:"Hello_3"}
+</script>
+-->
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1",
+        key2 : "Hello_2",
+        key3 : "Hello_3"
+    };
+    console.log( Object.keys(obj) );        
+                    //['key1', 'key2', 'key3']
+    console.log( Object.values(obj) );
+                    //['Hello_1', 'Hello_2', 'Hello_3']
+</script>
+-->
+
+<!--
+<script>
+    let obj1 = {
+        key1 : "Hello_1"
+    };
+    let obj2 = {
+        ...obj1,
+        key2 : "Hello_2"
+    };
+    let obj3 = {
+        ...obj2,
+        key3 : "Hello_3"
+    };
+    console.log(obj1);      //{key1: 'Hello_1'}
+    console.log(obj2);      //{key1: 'Hello_1', key2: 'Hello_2'}
+    console.log(obj3);      
+    //{key1: 'Hello_1', key2: 'Hello_2', key3: 'Hello_3'}
+</script>
+-->
+
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1",
+        key1 : "Hello_2"
+    };
+    console.log(obj);  //{key1: 'Hello_2'}
+</script>
+-->
+
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1",
+        key2 : "Hello_2",
+        key3 : "Hello_3",
+        key1 : "Welcome_1",
+        key2 : "Welcome_2",
+        key3 : "Welcome_3"
+    };
+    console.log(obj);
+    //{key1: 'Welcome_1', key2: 'Welcome_2', key3: 'Welcome_3'}
+</script>
+-->
+
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1",
+        key2 : "Hello_1",
+        key3 : "Hello_1"
+    };
+    console.log(obj);
+    //{key1: 'Hello_1', key2: 'Hello_1', key3: 'Hello_1'}
+</script>
+-->
+
+
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1",
+        key2 : "Hello_2",
+        key3 : "Hello_3"
+    };
+    //obj to array
+    let arr = Object.entries(obj);
+    console.log(arr);
+    //[["key1","Hello_1"],["key2","Hello_2"],["key3","Hello_3"]]
+</script>
+-->
+
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1"
+    };
+
+    //add key2
+    //value is "Hello_2"
+    //dont allow update operation
+    Object.defineProperty(obj,"key2",{value:"Hello_2",writable:false});
+    console.log(obj);       //{key1: 'Hello_1', key2: 'Hello_2'}
+    
+    obj.key1 = "welcome_1";
+    obj.key2 = "welcome_2";
+    console.log(obj);       //{key1: 'welcome_1', key2: 'Hello_2'}
+</script>
+-->
+
+
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1"
+    };
+
+    //add key2
+    //value is "Hello_2"
+    //dont allow updation operation
+    Object.defineProperty(obj,"key2",{value:"Hello_2",writable:false});
+
+    //add key3
+    //value is "Hello_3"
+    //allow updation operation
+    Object.defineProperty(obj,"key3",{value:"Hello_3",writable:true});
+
+    console.log(obj);   
+            //{key1: 'Hello_1', key2: 'Hello_2', key3: 'Hello_3'}
+
+    obj.key1 = "welcome_1";
+    obj.key2 = "welcome_2";
+    obj.key3 = "welcome_3";
+    console.log(obj);
+            //{key1: 'welcome_1', key2: 'Hello_2', key3: 'welcome_3'}
+</script>
+-->
+
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1"
+    };
+
+    //add key2
+    //value is "Hello_2"
+    //dont allow updation operation
+
+    //add key3
+    //value is "Hello_3"
+    //allow updation opearation
+    Object.defineProperties(obj,{"key2":{value:"Hello_2",writable:false},
+                                 "key3":{value:"Hello_3",writable:true}});
+    console.log(obj);   //{key1: 'Hello_1', key2: 'Hello_2', key3: 'Hello_3'}
+
+    obj.key1 = "welcome_1";
+    obj.key2 = "welcome_2";
+    obj.key3 = "welcome_3";
+    console.log(obj);   //{key1: 'welcome_1', key2: 'Hello_2', key3: 'welcome_3'}
+</script>
+-->
+<!--
+<script>
+    let obj = {
+        key1 : "Hello_1"
+    };
+    //add key2
+    //value is "Hello_2"
+    //dont allow updation operation
+
+    //add key3
+    //value is "Hello_3"
+    //allow updation operation
+
+    //add key4
+    //value is "Hello_4"
+    //dont allow updation operation
+</script>
+-->
+
+
+
+<!--
+<script>
+    //array to object
+    let arr = ["reactjs",
+               "nodejs",
+               "mongodb"];
+    let obj = {...arr};
+    console.log(obj);
+    //{0: 'reactjs', 1: 'nodejs', 2: 'mongodb'}
+</script>
+-->
+
+<!--
+<script>
+    let obj = {};
+    obj["key1"] = "Hello_1";
+    obj["key2"] = "Hello_2";
+    obj["key3"] = "Hello_3";
+    console.log(obj);
+    //{key1: 'Hello_1', key2: 'Hello_2', key3: 'Hello_3'}
+</script>
+-->
+
+<!--
+<script>
+    let obj = {
+        1 : "Hello_1",
+        2 : "Hello_2",
+        true : "Hello_3"
+    };
+    console.log( obj["1"], obj["2"], obj["true"] );
+    //Hello_1 Hello_2 Hello_3
+</script>
+-->
+<!--
+<script>
+    let obj = {
+        1 : "Hello_1",
+        "key2" : "Hello_2",
+        true : "Hello_3",
+        "key4" : "Hello_4",
+        undefined : "Hello_5",
+        null : "Hello_6"
+    };
+    console.log(
+        obj["1"],
+        obj["key2"],
+        obj["true"],
+        obj["key4"],
+        obj["undefined"],
+        obj["null"]
+    );
+    //Hello_1 Hello_2 Hello_3 Hello_4 Hello_5 Hello_6
+
+
+    //for....in loop
+    //ES6
+    for(let key in obj){
+        console.log(obj[key]);
+    }
+</script>
+-->
+
+<!--
+<script>
+    let obj1 = {key1 : "Hello_1"};
+    let obj2 = {key2 : "Hello_2"};
+    let obj3 = Object.assign(obj1,obj2);
+    console.log(obj3);
+    //{key1: 'Hello_1', key2: 'Hello_2'}
+</script>
+-->
+
+<!--
+<script>
+    let arr = [
+        {"p_id":111,"p_name":"p_one","p_cost":10000},
+        {"p_id":222,"p_name":"p_two","p_cost":20000},
+        {"p_id":333,"p_name":"p_three","p_cost":30000},
+        {"p_id":444,"p_name":"p_four","p_cost":40000},
+        {"p_id":555,"p_name":"p_five","p_cost":50000}
+    ];
+    document.write(`
+        <table>
+            <tr>
+                <th>SNO</th>
+                <th>P_ID</th>
+                <th>P_NAME</th>
+                <th>P_COST</th>
+            </tr>
+    `);
+     arr.forEach((element,index)=>{
+        document.write(`<tr>
+                <td>${index+1}</td>
+                <td>${element.p_id}</td>
+                <td>${element.p_name}</td>
+                <td>${element.p_cost}</td>
+            </tr>`);
+     });
+     document.write(`</table>`);
+</script>
+
+<script>
+    let arr = [
+        {"s_code":1,"s_name":"Angular"},
+        {"s_code":2,"s_name":"React"},
+        {"s_code":3,"s_name":"VueJS"},
+        {"s_code":4,"s_name":"NodeJS"},
+        {"s_code":5,"s_name":"MongoDB"}
+    ];
+    document.write(`
+        <table>
+            <tr>
+                <th>SNO</th>
+                <th>S_CODE</th>
+                <th>S_NAME</th>
+            </tr>
+    `);
+    arr.forEach((element,index)=>{
+        document.write(`<tr>
+                <td>${index+1}</td>
+                <td>${element.s_code}</td>
+                <td>${element.s_name}</td>
+            </tr>`);
+    });
+    document.write(`</table>`);
+</script>
+-->
+
+<!--
+    JSON Server
+    ***********
+        JSON Server, used to develop the Rest API'S
+        Ex.
+            GET
+            POST
+            PUT
+            DELETE
+            HEAD
+            TRACE
+            ---
+            ---
+            ---
+        JSON Server by default Running on Port No.3000
+
+        JSON Server Supports only JSON Data
+
+        we will test rest api's by using Postman
+
+        JSON Server installation is command based installation
+
+        > npm install --location=global json-server
+
+        we will load json data by using following command
+
+        > json-server --watch data.json
+-->
+<!--
+<script>
+    let obj = {"key1":"Hello_1"};
+    console.log( typeof obj );      //object
+    let str = JSON.stringify(obj);
+    console.log( typeof str );      //string
+</script>
+-->
+
+<script>
+    let obj1 = {"key1":"Hello_1"};
+    console.log( typeof obj1 );         //object
+    
+    let str1 = JSON.stringify(obj1);
+    console.log( typeof str1 );         //string
+
+    let obj2 = JSON.parse(str1);
+    console.log( typeof obj2 );         //object
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
